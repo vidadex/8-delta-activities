@@ -15,10 +15,23 @@ import android.widget.Button;
 
 public class FirstActivity extends Activity {
 
+    private Button mButton = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+
+        mButton = (Button) findViewById(R.id.goSecondActivity);
+
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), SecondActivity.class);
+                startActivity(i);
+
+            }
+        });
     }
 
     @Override
